@@ -145,13 +145,23 @@ while ($i < 5) {
 
 ```php
 <?php
-$i = 0;
-while ($i < 5) {
-    echo $i;
-    $i++;
+for ($i = 0; $i < 5; $i++) {
+    echo "El valor de i es: $i <br>";
 }
 ?>
 ```
+
+* for each:
+```php
+<?php
+$frutas = array("Manzana", "Banana", "Cereza");
+
+foreach ($frutas as $fruta) {
+    echo "Fruta: $fruta <br>";
+}
+?>
+```
+
 
 ## 7. Funciones en PHP
 
