@@ -17,7 +17,7 @@
             <div class="col-8">
 
 
-                <h1>Productos</h1>
+                <h1>Todos los Productos</h1>
                 <a href="{{ route('products.create') }}">Agregar Producto</a> 
                 <table class="table">
                     <thead class="thead-dark"">
