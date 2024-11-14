@@ -14,7 +14,6 @@ class ProductController extends Controller
     {
         $products = Product::latest()->paginate(10);
         return view('products.index', compact('products'));
-
     }
 
     /**
@@ -31,13 +30,13 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|max:255',
-            'price' => 'required|numeric',
+            'name' => 'required|max:20',
+            'quantity' => 'required|numeric',
             'description' => 'nullable|string',
         ]);
 
         Product::create($validated);
-        return redirect()->route('products.index')->with('success', 'Producto creado correctamente.');
+        return redirect()->route('products')->with('success', 'Producto creado correctamente.');
     }
 
     /**
