@@ -18,7 +18,7 @@
 
 
                 <h1>Productos</h1>
-                {{-- <a href="{{ route('products.create') }}">Agregar Producto</a> --}}
+                <a href="{{ route('products.create') }}">Agregar Producto</a> 
                 <table class="table">
                     <thead class="thead-dark"">
                         <tr>
@@ -35,12 +35,12 @@
                                 <td scope="row">{{ $product->quantity }}</td>
                                 <td scope="row">{{ $product->description }}</td>
                                 <td scope="row">
-                                     <a href="{{ route('products.edit', $product) }}">Editar</a>
-                         <form action="{{ route('products.destroy', $product) }}" method="POST" style="display:inline;">
-                              @csrf
-                              @method('DELETE')
-                              <button type="submit">Eliminar</button>
-                         </form> 
+                                     {{-- <a href="{{ route('products.edit', $product) }}">Editar</a> --}}
+                                {{-- <form action="{{ route('products.destroy', $product) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">Eliminar</button>
+                                </form>   --}}
                                 </td>
                             </tr>
                         @endforeach

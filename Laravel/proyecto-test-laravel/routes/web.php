@@ -20,9 +20,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-///Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products', [ProductController::class, 'index'])->name('products');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
-Route::resource('products', ProductController::class);
+// Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+//Route::resource('products', ProductController::class);
 
 
 
