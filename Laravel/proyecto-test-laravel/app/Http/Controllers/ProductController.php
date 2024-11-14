@@ -12,9 +12,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        $message = 'Mensaje del dia de hoy es:';
-        return view('product.index', ['products' => $products, 'message' => $message]);
+        $products = Product::latest()->paginate(10);
+        return view('products.index', compact('products'));
+
     }
 
     /**
@@ -22,7 +22,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -30,7 +30,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'price' => 'required|numeric',
+            'description' => 'nullable|string',
+        ]);
+
+        Product::create($validated);
+        return redirect()->route('products.index')->with('success', 'Producto creado correctamente.');
     }
 
     /**
@@ -62,5 +69,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        $product->delete();
+        return redirect()->route('products.index')->with('success', 'Producto eliminado correctamente.');
     }
 }
